@@ -17,9 +17,9 @@ $users=$pdo->query("SELECT id,name,email,role,created_at FROM users ORDER BY cre
 <tbody>
 <?php foreach($users as $u): ?>
 <tr>
-<td><?= $u['id']?></td><td><?= htmlspecialchars($u['name'])?></td><td><?= htmlspecialchars($u['email'])?></td><td>
+<td><?= htmlspecialchars((string)$u['id'])?></td><td><?= htmlspecialchars($u['name'])?></td><td><?= htmlspecialchars($u['email'])?></td><td>
 <form method="post">
-<input type="hidden" name="user_id" value="<?= $u['id'] ?>">
+<input type="hidden" name="user_id" value="<?= htmlspecialchars((string)$u['id']) ?>">
 <select name="role" class="form-select form-select-sm d-inline w-auto">
   <?php foreach(['customer','owner','staff','admin'] as $r): ?>
     <option value="<?= $r ?>" <?= $u['role']==$r?'selected':'' ?>><?= $r ?></option>
@@ -27,7 +27,7 @@ $users=$pdo->query("SELECT id,name,email,role,created_at FROM users ORDER BY cre
 </select>
 <button class="btn btn-sm btn-secondary">Mettre à jour</button>
 </form>
-</td><td><?= $u['created_at']?></td>
+</td><td><?= htmlspecialchars((string)$u['created_at'])?></td>
 </tr>
 <?php endforeach;?>
 </tbody>

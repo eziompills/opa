@@ -16,17 +16,17 @@ $bookings=$bookings->fetchAll();
 <tbody>
 <?php foreach($bookings as $b): ?>
 <tr>
-<td><?= $b['starts_at']?></td>
+<td><?= htmlspecialchars((string)$b['starts_at'])?></td>
 <td><?= htmlspecialchars($b['salon'])?></td>
 <td><?= htmlspecialchars($b['service'])?></td>
-<td><?= $b['status']?></td>
+<td><?= htmlspecialchars((string)$b['status'])?></td>
 <?php
 $canCancel = ($b['status']=='confirmed') && (strtotime($b['starts_at']) - time() > 86400);
 ?>
 <td>
-<?php if($canCancel): ?><a href="cancel_booking.php?id=<?= $b['id']?>" class="btn btn-sm btn-outline-danger me-1">Annuler</a><?php endif; ?>
+<?php if($canCancel): ?><a href="cancel_booking.php?id=<?= htmlspecialchars((string)$b['id'])?>" class="btn btn-sm btn-outline-danger me-1">Annuler</a><?php endif; ?>
 <?php if(!$b['reviewed']): ?>
-<a href="customer_review.php?booking_id=<?= $b['id']?>" class="btn btn-sm btn-outline-primary">Noter</a>
+<a href="customer_review.php?booking_id=<?= htmlspecialchars((string)$b['id'])?>" class="btn btn-sm btn-outline-primary">Noter</a>
 <?php else: ?>✓ Merci<?php endif; ?>
 </td>
 </tr>
