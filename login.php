@@ -13,7 +13,7 @@ if($_SERVER['REQUEST_METHOD']==='POST'){
 }
 ?>
 <h1>Connexion</h1>
-<?php if(isset($error)): ?><div class="alert alert-danger"><?= $error ?></div><?php endif; ?>
+<?php if(isset($error)): ?><div class="alert alert-danger"><?= htmlspecialchars((string)$error) ?></div><?php endif; ?>
 <form method="post">
   <div class="mb-3"><label>Email</label><input type="email" name="email" class="form-control" required></div>
   <div class="mb-3"><label>Mot de passe</label><input type="password" name="password" class="form-control" required></div>

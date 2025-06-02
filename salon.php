@@ -22,8 +22,8 @@ $cover = $pics[0] ?? 'assets/img/placeholder.jpg';
 <div class="hero-salon" style="background:url('/<?= $cover ?>') center/cover">
   <div class="overlay">
     <h1><?= htmlspecialchars($salon['name']) ?></h1>
-    <span class="badge bg-primary"><?= ucfirst($salon['category']) ?></span>
-    <div><?= $stars ?> (<?= $rating['c'] ?>)</div>
+    <span class="badge bg-primary"><?= htmlspecialchars(ucfirst((string)$salon['category'])) ?></span>
+    <div><?= $stars ?> (<?= htmlspecialchars((string)$rating['c']) ?>)</div>
     <p><i class="bi-geo-alt"></i> <?= htmlspecialchars($salon['address']) ?> – <?= htmlspecialchars($salon['city']) ?></p>
   </div>
 </div>
@@ -39,11 +39,11 @@ $cover = $pics[0] ?? 'assets/img/placeholder.jpg';
     <?= nl2br(htmlspecialchars($salon['description'])) ?>
     <h4 id="reserver" class="mt-4">Réserver</h4>
     <form method="post" action="choose_slot.php" class="row g-2">
-      <input type="hidden" name="salon_id" value="<?= $salon['id'] ?>">
+      <input type="hidden" name="salon_id" value="<?= htmlspecialchars((string)$salon['id']) ?>">
       <div class="col-md-6">
         <select name="service_id" class="form-select" required>
           <?php foreach($services as $srv): ?>
-            <option value="<?= $srv['id']?>"><?= htmlspecialchars($srv['name']) ?> – <?= number_format($srv['price_cents']/100,2) ?>€</option>
+            <option value="<?= htmlspecialchars((string)$srv['id'])?>"><?= htmlspecialchars((string)$srv['name']) ?> – <?= number_format($srv['price_cents']/100,2) ?>€</option>
           <?php endforeach; ?>
         </select>
       </div>
@@ -54,7 +54,7 @@ $cover = $pics[0] ?? 'assets/img/placeholder.jpg';
     <?php if($pics): ?>
     <div class="swiper">
       <div class="swiper-wrapper">
-        <?php foreach($pics as $p): ?><div class="swiper-slide"><img src="/<?= $p ?>" class="img-fluid rounded"></div><?php endforeach;?>
+        <?php foreach($pics as $p): ?><div class="swiper-slide"><img src="/<?= htmlspecialchars((string)$p) ?>" class="img-fluid rounded"></div><?php endforeach;?>
       </div><div class="swiper-pagination"></div>
     </div>
     <script>new Swiper('.swiper',{loop:true,pagination:{el:'.swiper-pagination'}});</script>

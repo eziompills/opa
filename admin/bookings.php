@@ -11,11 +11,11 @@ $bookings=$pdo->query("SELECT b.id,s.name salon, u.name client, b.starts_at, b.p
 <tbody>
 <?php foreach($bookings as $b): ?>
 <tr>
-  <td><?= $b['id']?></td>
+  <td><?= htmlspecialchars((string)$b['id'])?></td>
   <td><?= htmlspecialchars($b['salon'])?></td>
   <td><?= htmlspecialchars($b['client'])?></td>
-  <td><?= $b['starts_at']?></td>
-  <td><?= $b['payment_status']?></td>
+  <td><?= htmlspecialchars((string)$b['starts_at'])?></td>
+  <td><?= htmlspecialchars((string)$b['payment_status'])?></td>
 </tr>
 <?php endforeach;?>
 </tbody></table>

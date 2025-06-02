@@ -18,14 +18,14 @@ $salons=$salons->fetchAll();
       <h4><?= htmlspecialchars($s['name']) ?></h4>
       <p class="text-muted"><?= htmlspecialchars($s['city']) ?> – <?= htmlspecialchars($s['category'] ?? '') ?></p>
       <div class="btn-group flex-wrap">
-        <a href="profile.php?salon_id=<?= $s['id'] ?>" class="btn btn-outline-secondary btn-sm">Profil</a>
-        <a href="gallery.php?salon_id=<?= $s['id'] ?>" class="btn btn-outline-secondary btn-sm">Galerie</a>
-        <a href="services.php?salon_id=<?= $s['id'] ?>" class="btn btn-outline-secondary btn-sm">Services</a>
-        <a href="staff.php?salon_id=<?= $s['id'] ?>" class="btn btn-outline-secondary btn-sm">Personnel</a>
-        <a href="salon_hours.php?salon_id=<?= $s['id'] ?>" class="btn btn-outline-secondary btn-sm">Horaires</a>
-        <a href="reviews.php?salon_id=<?= $s['id'] ?>" class="btn btn-outline-secondary btn-sm">Avis</a>
-        <a href="schedule.php?salon_id=<?= $s['id'] ?>" class="btn btn-outline-secondary btn-sm">Planning</a>
-        <a href="analytics.php?salon_id=<?= $s['id'] ?>" class="btn btn-outline-primary btn-sm"><i class="bi-graph-up"></i> Stats</a>
+        <a href="profile.php?salon_id=<?= htmlspecialchars((string)$s['id']) ?>" class="btn btn-outline-secondary btn-sm">Profil</a>
+        <a href="gallery.php?salon_id=<?= htmlspecialchars((string)$s['id']) ?>" class="btn btn-outline-secondary btn-sm">Galerie</a>
+        <a href="services.php?salon_id=<?= htmlspecialchars((string)$s['id']) ?>" class="btn btn-outline-secondary btn-sm">Services</a>
+        <a href="staff.php?salon_id=<?= htmlspecialchars((string)$s['id']) ?>" class="btn btn-outline-secondary btn-sm">Personnel</a>
+        <a href="salon_hours.php?salon_id=<?= htmlspecialchars((string)$s['id']) ?>" class="btn btn-outline-secondary btn-sm">Horaires</a>
+        <a href="reviews.php?salon_id=<?= htmlspecialchars((string)$s['id']) ?>" class="btn btn-outline-secondary btn-sm">Avis</a>
+        <a href="schedule.php?salon_id=<?= htmlspecialchars((string)$s['id']) ?>" class="btn btn-outline-secondary btn-sm">Planning</a>
+        <a href="analytics.php?salon_id=<?= htmlspecialchars((string)$s['id']) ?>" class="btn btn-outline-primary btn-sm"><i class="bi-graph-up"></i> Stats</a>
       <a href="marketing.php" class="btn btn-outline-secondary btn-sm">Marketing</a>
 </div>
     </div>

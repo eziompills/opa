@@ -11,11 +11,11 @@ $salons=$pdo->query("SELECT s.*, u.name owner FROM salons s JOIN users u ON u.id
 <tbody>
 <?php foreach($salons as $s): ?>
 <tr>
-  <td><?= $s['id']?></td>
+  <td><?= htmlspecialchars((string)$s['id'])?></td>
   <td><?= htmlspecialchars($s['name'])?></td>
   <td><?= htmlspecialchars($s['city'])?></td>
   <td><?= htmlspecialchars($s['owner'])?></td>
-  <td><?= $s['category']?></td>
+  <td><?= htmlspecialchars((string)$s['category'])?></td>
 </tr>
 <?php endforeach;?>
 </tbody></table>
