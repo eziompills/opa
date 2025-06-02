@@ -33,4 +33,8 @@ function require_role($roles = []) {
         exit;
     }
 }
+
+function display_sidebar_toggle($sidebar_id = 'sidebar') {
+    echo '<button class="btn btn-outline-primary d-lg-none position-fixed" style="top:1rem;left:1rem;z-index:1050" onclick="document.getElementById('' . htmlspecialchars($sidebar_id) . '').classList.toggle('open')"><i class="bi-list"></i></button>';
+}
 ?>

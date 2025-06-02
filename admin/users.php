@@ -11,7 +11,7 @@ echo '<div class="content-wrap">';
 require_role(['admin']);
 $users=$pdo->query("SELECT id,name,email,role,created_at FROM users ORDER BY created_at DESC")->fetchAll();
 ?>
-<h2>Utilisateurs</h2>
+<h1 class="section-title">Utilisateurs</h1>
 <table class="table table-sm">
 <thead><tr><th>ID</th><th>Nom</th><th>Email</th><th>Rôle</th><th>Créé</th></tr></thead>
 <tbody>
@@ -19,10 +19,11 @@ $users=$pdo->query("SELECT id,name,email,role,created_at FROM users ORDER BY cre
 <tr>
 <td><?= htmlspecialchars((string)$u['id'])?></td><td><?= htmlspecialchars($u['name'])?></td><td><?= htmlspecialchars($u['email'])?></td><td>
 <form method="post">
+<label for="userRole<?= htmlspecialchars((string)$u['id']) ?>" class="visually-hidden">Rôle pour <?= htmlspecialchars((string)$u['name']) ?></label>
 <input type="hidden" name="user_id" value="<?= htmlspecialchars((string)$u['id']) ?>">
-<select name="role" class="form-select form-select-sm d-inline w-auto">
+<select name="role" id="userRole<?= htmlspecialchars((string)$u['id']) ?>" class="form-select form-select-sm d-inline w-auto">
   <?php foreach(['customer','owner','staff','admin'] as $r): ?>
-    <option value="<?= $r ?>" <?= $u['role']==$r?'selected':'' ?>><?= $r ?></option>
+    <option value="<?= $r ?>" <?= $u['role']==$r?'selected':'' ?>><?= htmlspecialchars($r) ?></option>
   <?php endforeach; ?>
 </select>
 <button class="btn btn-sm btn-secondary">Mettre à jour</button>

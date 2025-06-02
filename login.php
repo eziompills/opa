@@ -15,8 +15,8 @@ if($_SERVER['REQUEST_METHOD']==='POST'){
 <h1>Connexion</h1>
 <?php if(isset($error)): ?><div class="alert alert-danger"><?= htmlspecialchars((string)$error) ?></div><?php endif; ?>
 <form method="post">
-  <div class="mb-3"><label>Email</label><input type="email" name="email" class="form-control" required></div>
-  <div class="mb-3"><label>Mot de passe</label><input type="password" name="password" class="form-control" required></div>
+  <div class="mb-3"><label for="loginEmail" class="form-label">Email</label><input type="email" name="email" id="loginEmail" class="form-control" required></div>
+  <div class="mb-3"><label for="loginPassword" class="form-label">Mot de passe</label><input type="password" name="password" id="loginPassword" class="form-control" required></div>
   <button class="btn btn-primary">Se connecter</button>
   <a href="reset_request.php" class="btn btn-link">Mot de passe oublié</a>
 </form>

@@ -10,7 +10,7 @@ $bookings=$pdo->prepare("SELECT b.*, s.name as salon, sv.name as service, (SELEC
 $bookings->execute([user()['id']]);
 $bookings=$bookings->fetchAll();
 ?>
-<h1>Mes réservations</h1>
+<h1 class="section-title">Mes réservations</h1>
 <table class="table">
 <thead><tr><th>Date</th><th>Salon</th><th>Service</th><th>Statut</th><th>Action</th></tr></thead>
 <tbody>

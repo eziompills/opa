@@ -20,12 +20,12 @@ if($_SERVER['REQUEST_METHOD']==='POST'){
 }
 $services=$pdo->prepare("SELECT * FROM services WHERE salon_id=?"); $services->execute([$salon_id]);
 ?>
-<h1>Services – <?= htmlspecialchars($salon['name']) ?></h1>
+<h1 class="section-title">Services – <?= htmlspecialchars($salon['name']) ?></h1>
 <form method="post" class="row g-2 mb-4">
   <input type="hidden" name="add" value="1">
-  <div class="col-md-4"><input name="name" class="form-control" placeholder="Nom" required></div>
-  <div class="col-md-3"><input name="duration" class="form-control" placeholder="Durée (min)" type="number" required></div>
-  <div class="col-md-3"><input name="price" class="form-control" placeholder="Prix €" step="0.01" required></div>
+  <div class="col-md-4"><label for="serviceName" class="visually-hidden">Nom du service</label><input name="name" id="serviceName" class="form-control" placeholder="Nom" required></div>
+  <div class="col-md-3"><label for="serviceDuration" class="visually-hidden">Durée en minutes</label><input name="duration" id="serviceDuration" class="form-control" placeholder="Durée (min)" type="number" required></div>
+  <div class="col-md-3"><label for="servicePrice" class="visually-hidden">Prix en euros</label><input type="number" name="price" id="servicePrice" class="form-control" placeholder="Prix €" step="0.01" required></div>
   <div class="col-md-2"><button class="btn btn-success w-100"><i class="bi-plus"></i></button></div>
 </form>
 <table class="table">

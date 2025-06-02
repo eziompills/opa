@@ -21,7 +21,7 @@ if($_SERVER['REQUEST_METHOD']==='POST' && isset($_FILES['img'])){
 }
 $pics=array_filter(glob($gallery_dir.'/*'), 'is_file');
 ?>
-<h1>Galerie – <?= htmlspecialchars($salon['name']) ?></h1>
+<h1 class="section-title">Galerie – <?= htmlspecialchars($salon['name']) ?></h1>
 <form method="post" enctype="multipart/form-data" class="mb-3">
   <input type="file" name="img" accept="image/*" required>
   <button class="btn btn-primary">Ajouter</button>

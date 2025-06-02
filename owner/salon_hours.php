@@ -25,7 +25,7 @@ $h=[];
 foreach($hours as $row){$h[$row['day_of_week']]=[$row['open_time'],$row['close_time']];}
 $days=['Dim','Lun','Mar','Mer','Jeu','Ven','Sam'];
 ?>
-<h1>Horaires - <?= htmlspecialchars($salon['name']) ?></h1>
+<h1 class="section-title">Horaires - <?= htmlspecialchars($salon['name']) ?></h1>
 <form method="post">
 <table class="table">
 <thead><tr><th>Jour</th><th>Ouverture</th><th>Fermeture</th></tr></thead>

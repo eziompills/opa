@@ -17,19 +17,19 @@ if($_SERVER['REQUEST_METHOD']==='POST'){
   exit;
 }
 ?>
-<h1>Profil salon</h1>
+<h1 class="section-title">Profil salon</h1>
 <form method="post" class="row g-3">
-  <div class="col-md-6"><label class="form-label">Nom</label><input name="name" value="<?= htmlspecialchars($salon['name']) ?>" class="form-control" required></div>
-  <div class="col-md-6"><label class="form-label">Ville</label><input name="city" value="<?= htmlspecialchars($salon['city']) ?>" class="form-control" required></div>
-  <div class="col-12"><label class="form-label">Adresse</label><input name="address" value="<?= htmlspecialchars($salon['address']) ?>" class="form-control"></div>
-  <div class="col-md-6"><label class="form-label">Catégorie</label>
-    <select name="category" class="form-select">
+  <div class="col-md-6"><label for="profileSalonName" class="form-label">Nom</label><input name="name" id="profileSalonName" value="<?= htmlspecialchars($salon['name']) ?>" class="form-control" required></div>
+  <div class="col-md-6"><label for="profileSalonCity" class="form-label">Ville</label><input name="city" id="profileSalonCity" value="<?= htmlspecialchars($salon['city']) ?>" class="form-control" required></div>
+  <div class="col-12"><label for="profileSalonAddress" class="form-label">Adresse</label><input name="address" id="profileSalonAddress" value="<?= htmlspecialchars($salon['address']) ?>" class="form-control"></div>
+  <div class="col-md-6"><label for="profileSalonCategory" class="form-label">Catégorie</label>
+    <select name="category" id="profileSalonCategory" class="form-select">
       <?php foreach(['barbershop'=>'Barbier','bio'=>'Bio','kids'=>'Kids','mixte'=>'Mixte','spa'=>'Spa'] as $k=>$v): ?>
         <option value="<?= $k ?>" <?= ($salon['category']==$k)?'selected':'' ?>><?= $v ?></option>
       <?php endforeach; ?>
     </select>
   </div>
-  <div class="col-12"><label class="form-label">Description</label><textarea name="description" class="form-control"><?= htmlspecialchars($salon['description']) ?></textarea></div>
+  <div class="col-12"><label for="profileSalonDescription" class="form-label">Description</label><textarea name="description" id="profileSalonDescription" class="form-control"><?= htmlspecialchars($salon['description']) ?></textarea></div>
   <div class="col-12"><button class="btn btn-success">Enregistrer</button></div>
 </form>
 </div><?php require_once '../inc/footer.php'; ?>

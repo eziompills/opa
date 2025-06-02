@@ -25,7 +25,7 @@ $salons=$salons->fetchAll();
         <a href="salon_hours.php?salon_id=<?= htmlspecialchars((string)$s['id']) ?>" class="btn btn-outline-secondary btn-sm">Horaires</a>
         <a href="reviews.php?salon_id=<?= htmlspecialchars((string)$s['id']) ?>" class="btn btn-outline-secondary btn-sm">Avis</a>
         <a href="schedule.php?salon_id=<?= htmlspecialchars((string)$s['id']) ?>" class="btn btn-outline-secondary btn-sm">Planning</a>
-        <a href="analytics.php?salon_id=<?= htmlspecialchars((string)$s['id']) ?>" class="btn btn-outline-primary btn-sm"><i class="bi-graph-up"></i> Stats</a>
+        <a href="analytics.php?salon_id=<?= htmlspecialchars((string)$s['id']) ?>" class="btn btn-outline-secondary btn-sm"><i class="bi-graph-up"></i> Stats</a>
       <a href="marketing.php" class="btn btn-outline-secondary btn-sm">Marketing</a>
 </div>
     </div>

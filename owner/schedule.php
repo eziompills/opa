@@ -9,7 +9,7 @@ $salon->execute([$salon_id,user()['id']]);
 $salon=$salon->fetch();
 if(!$salon){ http_response_code(404); echo 'Salon non trouvé'; require '../inc/footer.php'; exit; }
 ?>
-<h1>Planning – <?= htmlspecialchars($salon['name']) ?></h1>
+<h1 class="section-title">Planning – <?= htmlspecialchars($salon['name']) ?></h1>
 <div id="calendar"></div>
 <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/main.min.js"></script>
 <script>

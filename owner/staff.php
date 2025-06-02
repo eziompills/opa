@@ -31,11 +31,11 @@ if($_SERVER['REQUEST_METHOD']==='POST'){
 $staff=$pdo->prepare("SELECT u.* FROM staff s JOIN users u ON u.id=s.user_id WHERE s.salon_id=?");
 $staff->execute([$salon_id]);
 ?>
-<h1>Personnel – <?= htmlspecialchars($salon['name']) ?></h1>
+<h1 class="section-title">Personnel – <?= htmlspecialchars($salon['name']) ?></h1>
 <form method="post" class="row g-2 mb-4">
   <input type="hidden" name="add" value="1">
-  <div class="col-md-4"><input name="name" class="form-control" placeholder="Nom" required></div>
-  <div class="col-md-5"><input name="email" class="form-control" placeholder="Email" required></div>
+  <div class="col-md-4"><label for="staffName" class="visually-hidden">Nom du membre du personnel</label><input name="name" id="staffName" class="form-control" placeholder="Nom" required></div>
+  <div class="col-md-5"><label for="staffEmail" class="visually-hidden">Email du membre du personnel</label><input type="email" name="email" id="staffEmail" class="form-control" placeholder="Email" required></div>
   <div class="col-md-3"><button class="btn btn-success w-100"><i class="bi-person-plus"></i> Ajouter</button></div>
 </form>
 <table class="table">

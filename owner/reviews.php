@@ -17,7 +17,7 @@ $reviews=$pdo->prepare("SELECT r.*, u.name as customer, s.name as service FROM r
 $reviews->execute([$salon_id]);
 $reviews=$reviews->fetchAll();
 ?>
-<h1>Avis pour <?= htmlspecialchars($salon['name']) ?></h1>
+<h1 class="section-title">Avis pour <?= htmlspecialchars($salon['name']) ?></h1>
 <table class="table">
 <thead><tr><th>Date</th><th>Client</th><th>Service</th><th>Note</th><th>Commentaire</th></tr></thead>
 <tbody>

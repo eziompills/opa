@@ -5,4 +5,4 @@
   <a href="/admin/bookings.php" class="<?= strpos($_SERVER['PHP_SELF'],'bookings')!==false?'active':''?>"><i class="bi-journal-check"></i> Réservations</a>
   <a href="/admin/users.php" class="<?= strpos($_SERVER['PHP_SELF'],'users')!==false?'active':''?>"><i class="bi-people"></i> Utilisateurs</a>
 </nav>
-<button class="btn btn-outline-primary d-lg-none position-fixed" style="top:1rem;left:1rem;z-index:1050" onclick="document.getElementById('sidebar').classList.toggle('open')"><i class="bi-list"></i></button>
+<?php display_sidebar_toggle('sidebar'); ?>

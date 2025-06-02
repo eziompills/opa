@@ -16,11 +16,11 @@ if($_SERVER['REQUEST_METHOD']==='POST'){
 }
 ?>
 <h1>Inscription</h1>
-<?php if(isset($error)): ?><div class="alert alert-danger"><?= $error ?></div><?php endif; ?>
+<?php if(isset($error)): ?><div class="alert alert-danger"><?= htmlspecialchars((string)$error) ?></div><?php endif; ?>
 <form method="post">
-  <div class="mb-3"><label>Nom</label><input name="name" class="form-control" required></div>
-  <div class="mb-3"><label>Email</label><input type="email" name="email" class="form-control" required></div>
-  <div class="mb-3"><label>Mot de passe</label><input type="password" name="password" class="form-control" required></div>
+  <div class="mb-3"><label for="registerName" class="form-label">Nom</label><input name="name" id="registerName" class="form-control" required></div>
+  <div class="mb-3"><label for="registerEmail" class="form-label">Email</label><input type="email" name="email" id="registerEmail" class="form-control" required></div>
+  <div class="mb-3"><label for="registerPassword" class="form-label">Mot de passe</label><input type="password" name="password" id="registerPassword" class="form-control" required></div>
   <button class="btn btn-success">Créer mon compte</button>
 </form>
 <?php require_once 'inc/footer.php'; ?>
